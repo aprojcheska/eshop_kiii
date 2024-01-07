@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    image: eshop-app:latest
+    container_name: eshop-app-container
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_ENGINE=django.db.backends.sqlite3
+      - DB_NAME=/app/db.sqlite3
