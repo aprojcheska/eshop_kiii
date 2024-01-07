@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    image: your-dockerhub-username/your-image-name:latest
+    container_name: your-production-container-name
+    ports:
+      - "80:8000"  # Example: Mapping container port 8000 to host port 80
+    environment:
+      - DB_ENGINE=django.db.backends.sqlite3
+      - DB_NAME=/app/db.sqlite3
+      # Add other environment variables specific to production, if needed
