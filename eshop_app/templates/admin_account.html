@@ -1,0 +1,130 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<style>
+    .container {
+        background-color: #FCF6F6;
+        width: 80%;
+        border-radius: 10px;
+        font-family: 'Roboto';
+    }
+
+    .col-5 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .col-7 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .acc-header {
+        color: #88787C;
+        text-transform: uppercase;
+    }
+
+
+    .btn-add {
+        background-color: #E24D73;
+        color: white;
+        width: 400px;
+        height: 35px;
+        border-radius: 30px;
+        border: 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 3px 27px 3px 27px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-add:hover{
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+    }
+
+
+    .btn-logout {
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+        width: 300px;
+        height: 35px;
+        border-radius: 30px;
+        margin-top: 20px;
+        padding: 3px 30px 3px 30px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-logout:hover{
+        background-color: #E24D73;
+        color: white;
+    }
+
+    .accinfo {
+        color: #88787C;
+        margin-top: 20px;
+    }
+
+    .accinfo label {
+        display: inline-block;
+        width: 150px;
+        margin-right: 10px;
+        margin-left: 50px;
+    }
+
+    .accinfo input {
+        display: inline-block;
+        width: 370px;
+        height: 31px;
+        margin-bottom: 20px;
+        color: #88787C;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-5"
+             style="display: flex; flex-direction: column; align-items: center; border-right: 1px solid #88787C">
+            <img src="https://github.com/aprojcheska/photos/blob/master/account_photo.png?raw=true" alt="Account photo" height="100" width="100"/></a>
+            <h3 style="text-align: center; color: #88787C; margin-top: 20px">Admin Profile</h3>
+            <a class="nav-item nav-link" href="{% url 'logout' %}"><button class="btn-logout">Log out</button></a>
+        </div>
+        <div class="col-7">
+            <div class="acc-header" style="display: flex; justify-content: center">
+                <h4>Add a new product</h4>
+            </div>
+            <form class="accinfo" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <label for="{{ form.name.id_for_label }}">Name</label>
+                <input type="text" name="{{ form.name.name }}" id="{{ form.name.id_for_label }}"
+                       class="form-control"/>
+
+                <label for="{{ form.description.id_for_label }}">Description</label>
+                <input type="text" name="{{ form.description.name }}" id="{{ form.description.id_for_label }}"
+                       class="form-control"/>
+
+                <label for="{{ form.price.id_for_label }}">Price</label>
+                <input type="number" name="{{ form.price.name }}" id="{{ form.price.id_for_label }}"
+                       class="form-control"/>
+
+                <label for="{{ form.photo.id_for_label }}">Photo</label>
+                <input type="text" name="{{ form.photo.name }}" id="{{ form.photo.id_for_label }}"
+                       class="form-control"/>
+
+                <div style="display: flex; justify-content: center">
+                    <div class="form-group">
+                        <button class="btn-add" type="submit">Add product</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

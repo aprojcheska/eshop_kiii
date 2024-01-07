@@ -1,0 +1,153 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<style>
+    .container {
+        background-color: #FCF6F6;
+        width: 80%;
+        border-radius: 10px;
+        font-family: 'Roboto';
+    }
+
+    .col-5 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .col-7 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .account-btn {
+        margin-bottom: 30px;
+    }
+
+    .btn-account {
+        background-color: #E24D73;
+        color: white;
+        width: 150px;
+        height: 35px;
+        border-radius: 30px;
+        border: 0;
+        margin-left: 5px;
+        margin-right: 40px;
+        padding: 3px 27px 3px 27px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-account:hover{
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+    }
+
+    .btn-cart {
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+        width: 150px;
+        height: 35px;
+        border-radius: 30px;
+        margin-left: 40px;
+        margin-right: 5px;
+        padding: 3px 30px 3px 30px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-cart:hover{
+        background-color: #E24D73;
+        color: white;
+    }
+
+    .btn-logout {
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+        width: 300px;
+        height: 35px;
+        border-radius: 30px;
+        margin-top: 20px;
+        padding: 3px 30px 3px 30px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-logout:hover{
+        background-color: #E24D73;
+        color: white;
+    }
+
+    .accinfo{
+        color: #88787C;
+    }
+    .col-6 input{
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        color: #88787C;
+    }
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-5"
+             style="display: flex; flex-direction: column; align-items: center; border-right: 1px solid #88787C">
+            <img src="https://github.com/aprojcheska/photos/blob/master/account_photo.png?raw=true" alt="Account photo" height="100" width="100"/></a>
+            <h3 style="text-align: center; color: #88787C; margin-top: 20px">{{custom_user.first_name}} {{custom_user.last_name}}</h3>
+            <a class="nav-item nav-link" href="{% url 'logout' %}"><button class="btn-logout">Log out</button></a>
+        </div>
+        <div class="col-7">
+            <div class="account-btn" style="display: flex; justify-content: center">
+                <a href="../account"><button class="btn-account">Account</button></a>
+                <a href="../cart"><button class="btn-cart">Cart</button></a>
+            </div>
+            <form class="accinfo">
+                <div class="row mb-4">
+                    <label class="col-2 offset-2 col-form-label">Name</label>
+                    <div class="col-6">
+                        <input type="text" class="form-control form-control-sm" value="{{ custom_user.first_name }}">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <label class="col-2 offset-2 col-form-label">Surname</label>
+                    <div class="col-6">
+                        <input type="text" class="form-control form-control-sm" value="{{ custom_user.last_name }}">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <label class="col-2 offset-2 col-form-label">E-mail</label>
+                    <div class="col-6">
+                        <input type="email" class="form-control form-control-sm" value="{{ user.email }}">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <label class="col-2 offset-2 col-form-label">Phone</label>
+                    <div class="col-6">
+                        <input type="text" class="form-control form-control-sm" value="{{ custom_user.phone }}">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <label class="col-2 offset-2 col-form-label">City</label>
+                    <div class="col-6">
+                        <input type="text" class="form-control form-control-sm" value="{{ custom_user.city }}">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <label class="col-2 offset-2 col-form-label">Street</label>
+                    <div class="col-6">
+                        <input type="text" class="form-control form-control-sm" value="{{ custom_user.street }}">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <label class="col-2 offset-2 col-form-label">Street no</label>
+                    <div class="col-6">
+                        <input type="text" class="form-control form-control-sm" value="{{ custom_user.street_no }}">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

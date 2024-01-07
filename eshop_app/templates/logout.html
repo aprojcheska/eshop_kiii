@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- jQuery library -->
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+<style>
+    body {
+        background-color: #F1D5DC;
+    }
+
+    .outer-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+    .inner-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+        margin-top: 10px;
+        background-color: white;
+        border-radius: 10px;
+        color: #88787C;
+        font-family: 'Roboto';
+    }
+
+    .btn-login {
+        background-color: #E24D73;
+        color: white;
+        width: 200px;
+        height: 35px;
+        border-radius: 30px;
+        border: 0;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        padding: 3px 27px 3px 27px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-login:hover{
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+    }
+
+    .btn-home {
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+        width: 200px;
+        height: 35px;
+        border-radius: 30px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        padding: 3px 27px 3px 27px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-home:hover{
+        background-color: #E24D73;
+        color: white;
+    }
+
+    .conftext{
+        margin-top: 20px;
+        text-transform: uppercase;
+    }
+</style>
+<body>
+<div class="outer-container">
+        <div class="inner-container">
+            <h4 class="conftext">You have been logged out</h4>
+            <br/>
+            <h6>Log in again</h6>
+            <a href="{% url 'login' %}"><button class="btn-login">Log in</button></a>
+            <h6>Go to the home page</h6>
+            <a href="../">
+            <button class="btn-home">Home</button></a>
+        </div>
+    </div>
+</body>
+</html>

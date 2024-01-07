@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- jQuery library -->
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+<style>
+    body {
+        background-color: #F1D5DC;
+    }
+
+    .outer-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .inner-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+        margin-top: 10px;
+        background-color: #FCF6F6;
+        border-radius: 10px;
+        color: #88787C;
+        font-family: 'Roboto';
+    }
+
+    .btn-login {
+        background-color: #E24D73;
+        color: white;
+        width: 100%;
+        height: 35px;
+        border-radius: 30px;
+        border: 0;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        padding: 3px 27px 3px 27px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-login:hover{
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+    }
+
+    .btn-signup {
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+        width: 350px;
+        height: 35px;
+        border-radius: 30px;
+        margin-top: 5px;
+        margin-bottom: 70px;
+        padding: 3px 27px 3px 27px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-signup:hover{
+        background-color: #E24D73;
+        color: white;
+    }
+
+
+    .form-group {
+        width: 350px;
+        margin-top: 10px;
+    }
+
+    .conftext {
+        margin-top: 70px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .login-form {
+        margin-top: 20px;
+        /*margin-bottom: 20px;*/
+    }
+
+    .login-form label {
+        display: inline-block;
+        width: 80px;
+        margin-right: 10px;
+        margin-left: 70px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        display: inline-block;
+        width: 370px;
+        height: 31px;
+        margin-bottom: 20px;
+        color: #88787C;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+</style>
+<body>
+<div class="outer-container">
+    <div class="inner-container">
+        <h2 class="conftext">Log in</h2>
+        <form class="login-form" method="POST">
+            {% csrf_token %}
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}"
+                   class="form-control"/>
+
+            <label for="{{ form.password.id_for_label }}">Password</label>
+            <input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}"
+                   class="form-control"/>
+
+            <hr style="width: 468px; height: 1px; margin-left: 70px">
+
+            <div style="display: flex; justify-content: center">
+                <div class="form-group">
+                    <button class="btn-login" type="submit">Log In</button>
+                </div>
+            </div>
+        </form>
+        <div>
+            <p style="text-align: center; font-size: 14px; margin-bottom: 5px; opacity: 60%">Don't have an account? Create one now...</p>
+            <a href="{% url 'register' %}">
+                <button class="btn-signup">Sign up</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

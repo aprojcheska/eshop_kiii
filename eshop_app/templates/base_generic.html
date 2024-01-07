@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- jQuery library -->
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+<style>
+    body {
+        background-color: #F1D5DC;
+    }
+    .base {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 80%;
+    }
+    .logo {
+        font-family: 'Montserrat';
+        color: white;
+        font-size: 30px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin-left: 50px
+    }
+    .prodbtn{
+        background-color: #E24D73;
+        font-family: 'Roboto';
+        text-transform: uppercase;
+        font-weight: lighter;
+        color: white;
+        font-size: 20px;
+        border-radius: 50px;
+        border: 0;
+        padding: 5px 40px 5px 40px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+    .prodbtn:hover{
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+    }
+    .nav{
+        margin-right: 50px;
+    }
+    .bodytext{
+        font-family: 'Roboto';
+    }
+</style>
+<body>
+{% load static %}
+<div class="container base">
+    <div class="row">
+        <nav class="navbar" style="border-radius: 10px; background-color: #FCF6F6; height: 70px">
+            <div class="container-fluid">
+                <a href="{% url 'home' %}" style="text-decoration: none"><span class="navbar-item logo">cookies</span></a>
+                <span>
+                    <ul class="nav" style="display: flex; justify-content: flex-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../products">
+                                <button class="prodbtn">Products</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            {% if user.is_authenticated %}
+                                {% if user.username == 'admin' %}
+                                    <a class="nav-link" href="../admin_account">
+                                    <img src="https://github.com/aprojcheska/photos/blob/master/account_photo.png?raw=true" alt="Account photo" height="40" width="40"/></a>
+                                {% else %}
+                                    <a class="nav-link" href="{% url 'cart' %}">
+                                    <img src="https://github.com/aprojcheska/photos/blob/master/cart.png?raw=true" alt="Account photo" height="40" width="40"/></a>
+                                {% endif %}
+                            {% else %}
+                            <a class="nav-link" href="{% url 'login' %}">
+                            <img src="https://github.com/aprojcheska/photos/blob/master/account_photo.png?raw=true" alt="Account photo" height="40" width="40"/></a>
+                            {% endif %}
+                        </li>
+                    </ul>
+            </span>
+            </div>
+        </nav>
+    </div>
+</div>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

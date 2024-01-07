@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- jQuery library -->
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+<style>
+    body {
+        background-color: #F1D5DC;
+    }
+
+    .container {
+        width: 50%;
+        margin-top: 10px;
+        background-color: white;
+        border-radius: 10px;
+        color: #88787C;
+        font-family: 'Roboto';
+    }
+
+    .col-6 input {
+        color: #88787C;
+        border: 0;
+        /*box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);*/
+    }
+
+    .btn-back {
+        background-color: #E24D73;
+        color: white;
+        width: 200px;
+        height: 35px;
+        border-radius: 30px;
+        border: 0;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        margin-right: 20px;
+        padding: 3px 27px 3px 27px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-back:hover{
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+    }
+
+    .btn-order {
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+        width: 200px;
+        height: 35px;
+        border-radius: 30px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        margin-left: 20px;
+        padding: 3px 27px 3px 27px;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-order:hover{
+        background-color: #E24D73;
+        color: white;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="row" style="margin-top: 37px">
+        <h3 style="text-align: center; margin-top: 20px; margin-bottom: 20px">CONFIRM INFORMATION</h3>
+        <form class="accinfo">
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">Name</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="{{ custom_user.first_name }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">Surname</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="{{ custom_user.last_name }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">E-mail</label>
+                <div class="col-6">
+                    <input type="email" class="form-control form-control-sm" value="{{ user.email }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">Phone</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="{{ custom_user.phone }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">City</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="{{ custom_user.city }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">Street</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="{{ custom_user.street }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">Street no</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="{{ custom_user.street_no }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">Total</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="{{ total_price }} MKD">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">Card holder</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="{{ custom_user.first_name }} {{ custom_user.last_name }}">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">Card number</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="XXXX XXXX XXXX XXXX">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-2 offset-2 col-form-label">CVV</label>
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm" value="XXX">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="product-btn" style="display: flex; justify-content: center; margin-top: 10px; margin-bottom: 20px">
+            <a href="{% url 'delivery' %}"><button class="btn-back">Back</button></a>
+            <a href="{% url 'ordered' %}"><button class="btn-order">Confirm order</button></a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<style>
+    .left-bar {
+        margin-top: 0;
+        padding: 0;
+        width: 20%;
+        font-family: 'Roboto';
+    }
+
+    .left-bar-img {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        opacity: 40%;
+        z-index: -1;
+    }
+
+    .quote {
+        margin-top: -30px;
+        margin-left: 15px;
+        color: white;
+        font-size: 16px;
+        font-weight: lighter;
+    }
+
+    .product-rec {
+        background-color: #FCF6F6;
+        color: #88787C;
+        border-radius: 30px;
+        margin-top: 50px;
+        padding: 10px;
+        text-align: center;
+        font-family: 'Roboto';
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+    .product-rec h5{
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .filter-options li {
+        padding: 3px;
+    }
+
+    .products {
+        width: 80%;
+        height: 592px;
+        margin-top: 0;
+    }
+
+    .products-row {
+        margin-top: -20px;
+    }
+
+    .product-col {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .product-img {
+        width: 170px;
+        height: 170px;
+    }
+
+    .product-details {
+        background-color: #FCF6F6;
+        color: #88787C;
+        border-radius: 30px;
+        margin-top: -100px;
+        padding: 10px;
+        font-family: 'Roboto';
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .product-price {
+        text-align: end;
+        margin-right: 50px;
+    }
+
+    .product-name {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+    }
+
+    .product-btn {
+        margin-bottom: 20px;
+    }
+
+    .btn-more {
+        background-color: #E24D73;
+        color: white;
+        border-radius: 30px;
+        border: 0;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 3px 27px 3px 27px;
+        text-transform: uppercase;
+    }
+    .btn-more:hover{
+        background-color: white;
+        color: #E24D73;
+        border: 1px solid #E24D73;
+    }
+
+    .btn-add {
+        background-color: white;
+        color: #E24D73;
+        border-radius: 30px;
+        border: 1px solid #E24D73;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 3px 30px 3px 30px;
+        text-transform: uppercase;
+    }
+    .btn-add:hover{
+        background-color: #E24D73;
+        color: white;
+    }
+
+    .navigation-link {
+        background-color: #E24D73;
+        color: white;
+        border: 0;
+        margin-right: 5px;
+        border-radius: 20px;
+        padding: 5px 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .navigation-link:hover {
+        background-color: #ECA5B7;
+    }
+
+    .page-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        background-color: #ECA5B7;
+        border: 0;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        padding: 5px 5px;
+        margin-right: 5px;
+        text-decoration: none;
+    }
+
+    .page-number:hover {
+        background-color: #E24D73;
+    }
+</style>
+
+<div class="container" style="width: 80%;">
+    <div class="row">
+        <div class="col-3 left-bar">
+            <div>
+                <img class="left-bar-img" src="https://github.com/aprojcheska/photos/blob/master/quotation.png?raw=true">
+                <p class="quote">Take a break from the hustle and bustle, let the
+                    sweetness of our cookies remind you that life's sweetness
+                    is all around, waiting to be relished.<br><span style="color: #F1D5DC">Wor</span>- Cookies Bakery
+                </p>
+            </div>
+            <div class="product-rec">
+                <h5 style="margin-top: 10px; font-weight: bold">Our recommendation</h5>
+                <img src="https://github.com/aprojcheska/photos/blob/master/cookie19.png?raw=true" width="150px" height="150px">
+                <h5>Caramel apple</h5>
+                <button class="btn-more" data-bs-toggle="modal" data-bs-target="#rec-cookie" style="width: 150px; margin-top: 10px; margin-bottom: 10px">More</button>
+
+                <div class="modal fade" id="rec-cookie" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5">CARAMEL APPLE</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p style="text-align: start">Ingredients: All-purpose flour, butter, granulated sugar,
+                                    dark brown sugar, eggs, baking soda, baking powder, salt, vanilla extract,
+                                    concentrated apple juice, cinnamon, nutmeg, ginger.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-more" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-9 products">
+            <div class="row products-row">
+                {% for product in page_obj.object_list %}
+                <div class="col-4 product-col">
+                    <img class="product-img" src="{{product.photo}}">
+                    <div class="product-details">
+                        <h3 class="product-price" style="margin-top: 5px">{{product.price}}</h3>
+                        <h3 class="product-price">MKD</h3>
+                        <h5 class="product-name">{{product.name}}</h5>
+
+                        <div class="product-btn" style="display: flex; justify-content: center">
+                            <button class="btn-more" data-bs-toggle="modal"
+                                    data-bs-target="#cookieInfo{{ product.id }}">More
+                            </button>
+
+                            <div class="modal fade" id="cookieInfo{{ product.id }}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5">{{ product.name }}</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>{{ product.description }}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn-more" data-bs-dismiss="modal">Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if user.is_authenticated %}
+                            {% if user.username == 'admin' %}
+                            <a href="{% url 'remove_product' product.id %}">
+                                <button class="btn-add" style="padding: 3px 16px 3px 16px">Remove</button>
+                            </a>
+                            {% else %}
+                            <a href="{% url 'add_to_cart' product.id %}">
+                                <button class="btn-add">Add</button>
+                            </a>
+                            {% endif %}
+                            {% else %}
+                            <button class="btn-add" data-bs-toggle="modal" data-bs-target="#loginInfo2">Add</button>
+
+                            <div class="modal fade" id="loginInfo2" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Restricted action</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>You have to be logged in as a customer to add products to the cart.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a class="nav-link" href="{% url 'login' %}">
+                                                <button type="button" class="btn-add" data-bs-dismiss="modal">Log in
+                                                </button>
+                                            </a>
+                                            <button type="button" class="btn-more" data-bs-dismiss="modal">Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row" style="text-align: center; margin-top: 20px; margin-bottom: 20px; font-family: 'Roboto';">
+        <span>
+            {%if page_obj.has_previous %}
+            <a class="navigation-link" href="?page={{page_obj.previous_page_number}}">Back</a>
+            <a class="page-number" href="?page={{page_obj.previous_page_number}}">{{page_obj.previous_page_number}}</a>
+            {% endif %}
+            <a class="page-number" href="?page={{page_obj.number}}" style="font-weight: bold">{{page_obj.number}}</a>
+            {%if page_obj.has_next %}
+            <a class="page-number" href="?page={{page_obj.next_page_number}}">{{page_obj.next_page_number}}</a>
+            <a class="navigation-link" href="?page={{page_obj.next_page_number}}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+
+</div>
+
+{% endblock %}

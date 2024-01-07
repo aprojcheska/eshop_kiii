@@ -1,0 +1,46 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<style>
+    .container {
+        background: url('https://github.com/aprojcheska/photos/blob/master/home_background.png?raw=true') no-repeat center center fixed;
+    }
+
+    .container::before {
+        content: "";
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        background: inherit;
+        z-index: -1;
+    }
+</style>
+<div class="container" style="width: 80%;">
+    <div class="row" style="margin-right: 40px; margin-bottom: 20px">
+        <div class="col-6" style="margin-top: 30px; margin-left: 30px">
+            <img src="https://github.com/aprojcheska/photos/blob/master/home_page.png?raw=true" alt="Home page photo" height="480" width="580">
+
+        </div>
+        <div class="col-5" style="align-self: center; color: white;">
+            <h4 class="bodytext" style="text-transform: uppercase; font-weight: bold; margin-bottom: 20px">Discover a world of
+                delectable cookies</h4>
+            <p style="font-weight: lighter; opacity: 80%">Our cookies shop offers many different flavors,
+                from classics to fun and unusual, here to meet everyone's needs and wishes. Our dedicated bakers craft each cookie
+                with love and attention to ensure the highest quality and flavor. Visit our shop today and indulge
+                in the delightful world of cookies!</p>
+
+        </div>
+    </div>
+
+    <div class="row" style="justify-content: center">
+        <div class="col-6 offset-3">
+            <a class="nav-link" href="../products">
+                <button class="prodbtn">Discover all flavors</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
