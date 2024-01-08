@@ -24,6 +24,11 @@ jobs:
           docker build -t projcheska/eshop-kiii:latest .
           docker push projcheska/eshop-kiii:latest
 
+      - name: Debug Container Status
+        run: |
+          docker ps
+          docker inspect eshop-kiii
+
       - name: Deploy with Docker Compose
         run: |
           docker-compose -f docker-compose.prod.yml up -d
