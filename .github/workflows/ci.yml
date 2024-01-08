@@ -27,7 +27,7 @@ jobs:
       - name: Deploy with Docker Compose
         run: |
           cd ..
-          cd ..
+          pwd
           docker-compose -f docker-compose.prod.yml up -d
 
       - name: Debug Container Status
