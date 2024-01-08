@@ -3,7 +3,7 @@ services:
     image: projcheska/eshop-kiii:latest
     container_name: eshop-kiii
     ports:
-      - "8000:8000"
+      - "8080:8000"
     environment:
       - DB_ENGINE=django.db.backends.sqlite3
       - DB_NAME=/app/db.sqlite3
