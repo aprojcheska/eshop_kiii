@@ -23,7 +23,3 @@ jobs:
         run: |
           docker build -t projcheska/eshop-kiii:latest .
           docker push projcheska/eshop-kiii:latest
-
-      - name: Deploy with Docker Compose
-        run: |
-          docker-compose -f docker-compose.prod.yml up -d
