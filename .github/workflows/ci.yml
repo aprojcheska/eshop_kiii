@@ -26,9 +26,8 @@ jobs:
 
       - name: Debug Container Status
         run: |
-          docker ps
-          docker inspect eshop-kiii
-
+          docker ps -a
+          
       - name: Deploy with Docker Compose
         run: |
           docker-compose -f docker-compose.prod.yml up -d
