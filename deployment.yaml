@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eshop-app-deployment
+  namespace: kiii
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eshop-app
+  template:
+    metadata:
+      labels:
+        app: eshop-app
+    spec:
+      containers:
+      - name: web
+        image: projcheska/eshop-kiii:latest
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: eshop-app-config
