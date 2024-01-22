@@ -23,8 +23,3 @@ jobs:
         run: |
           docker build -t projcheska/eshop-kiii:latest .
           docker push projcheska/eshop-kiii:latest
-
-      - name: Debug Container Status
-        run: |
-          docker ps -a
-          docker inspect eshop-kiii
