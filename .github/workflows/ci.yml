@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI
 
 on:
   push:
@@ -23,12 +23,6 @@ jobs:
         run: |
           docker build -t projcheska/eshop-kiii:latest .
           docker push projcheska/eshop-kiii:latest
-          
-      - name: Deploy with Docker Compose
-        run: |
-          pwd
-          ls
-          docker-compose -f docker-compose.prod.yml up -d
 
       - name: Debug Container Status
         run: |
